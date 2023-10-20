@@ -21,7 +21,7 @@ public class Main {
     public static void main(String[] args) {
         // Variables & Objects
         Scanner myScan = new Scanner(System.in);
-        int noOfTriangles = 0;
+        int noOfTriangles;
         System.out.println("Assignment1: Geometry");
         do {
             System.out.println("Enter number of triangles:");
