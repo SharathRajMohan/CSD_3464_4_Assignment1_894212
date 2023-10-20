@@ -8,6 +8,7 @@ public class Triangle {
     double sidecb;
 
     double perimeter;
+    boolean isIsoceles;
 
     public Triangle(Point a, Point b, Point c) {
         this.a = a;
@@ -19,6 +20,7 @@ public class Triangle {
         this.sidecb = calculateDistanceBetweenPoints(c.x,c.y,b.x,b.y);
 
         this.perimeter = perimeter(sideab,sideac,sidecb);
+        this.isIsoceles = isIsoceles(sideab,sideac,sidecb);
     }
 
     public double calculateDistanceBetweenPoints(
@@ -33,6 +35,17 @@ public class Triangle {
         return a+b+c;
     }
 
+    public boolean isIsoceles(double sideab, double sideac, double sidecb){
+        if (sideab == sideac || sideac == sidecb || sidecb == sideab ) {
+            System.out.println("Isoceles Triangle Found...");
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+
     @Override
     public String toString() {
         return "Triangle { " +
@@ -42,7 +55,7 @@ public class Triangle {
                 "\n"+
                 "Perimeter: "+perimeter+
                 "\n"+
-                "IsIscoceles: "+"TBD"+
+                "IsIscoceles: "+isIsoceles+
                 " }";
     }
 }
