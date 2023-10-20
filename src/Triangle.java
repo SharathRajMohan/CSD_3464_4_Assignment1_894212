@@ -3,33 +3,46 @@ public class Triangle {
     Point b;
     Point c;
 
-    public Point getB() {
-        return b;
-    }
+    double sideab;
+    double sideac;
+    double sidecb;
 
-    public void setB(Point b) {
-        this.b = b;
-    }
-
-    public Point getC() {
-        return c;
-    }
-
-    public void setC(Point c) {
-        this.c = c;
-    }
+    double perimeter;
 
     public Triangle(Point a, Point b, Point c) {
         this.a = a;
         this.b = b;
         this.c = c;
+
+        this.sideab = calculateDistanceBetweenPoints(a.x,a.y,b.x,b.y);
+        this.sideac = calculateDistanceBetweenPoints(a.x,a.y,c.x,c.y);
+        this.sidecb = calculateDistanceBetweenPoints(c.x,c.y,b.x,b.y);
+
+        this.perimeter = perimeter(sideab,sideac,sidecb);
     }
 
-    public Point getA() {
-        return a;
+    public double calculateDistanceBetweenPoints(
+            double x1,
+            double y1,
+            double x2,
+            double y2) {
+        return Math.sqrt((y2 - y1) * (y2 - y1) + (x2 - x1) * (x2 - x1));
     }
 
-    public void setA(Point a) {
-        this.a = a;
+    public double perimeter(double a, double b, double c){
+        return a+b+c;
+    }
+
+    @Override
+    public String toString() {
+        return "Triangle { " +
+                "point 1=" + a +
+                ", point 2=" + b +
+                ", point 3=" + c +
+                "\n"+
+                "Perimeter: "+perimeter+
+                "\n"+
+                "IsIscoceles: "+"TBD"+
+                " }";
     }
 }
