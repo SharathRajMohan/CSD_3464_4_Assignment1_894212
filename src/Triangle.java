@@ -44,7 +44,30 @@ public class Triangle {
         }
     }
 
+    // Extra Section to check if a point is in the triangle or not
 
+    // calc Area from points method
+    static double area(Point a, Point b, Point c) {
+        return Math.abs((a.x*(b.y-c.y) + b.x*(c.y-a.y)+ c.x*(a.y-b.y))/2.0);
+    }
+    // Check if point lies inside the triangle or not.
+    boolean isInside(Point o)
+    {
+        /* Calculate area of triangle ABC */
+        double A = area (this.a,this.b,this.c);
+
+        /* Calculate area of triangle PBC */
+        double A1 = area (o, this.b, this.c);
+
+        /* Calculate area of triangle PAC */
+        double A2 = area (this.a, o, this.c);
+
+        /* Calculate area of triangle PAB */
+        double A3 = area (this.a, this.b, o);
+
+        /* Check if sum of A1, A2 and A3 is same as A */
+        return (A == A1 + A2 + A3);
+    }
 
     @Override
     public String toString() {

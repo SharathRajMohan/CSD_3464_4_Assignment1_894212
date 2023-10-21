@@ -68,9 +68,22 @@ public class Main {
             System.out.println(triangle);
         }
 
+        System.out.println("\nCheck if a point lies inside any of the triangle or not:");
+        System.out.print("Enter x-coordinate for a point: ");
+        double x1 = getVerifiedDouble();
 
-
-
+        System.out.print("Enter y-coordinate for a point: ");
+        double y1 = getVerifiedDouble();
+        Point exPoint = new Point(x1,y1);
+        for (Triangle triangle : triangles) {
+            if(triangle.isInside(exPoint)) {
+                System.out.println("The Point "+exPoint+" lies inside the triangle {"+triangle.a+
+                        triangle.b+triangle.c+" }\n");
+            }else {
+                System.out.println("The point lies outside the triangle{"+triangle.a+
+                        triangle.b+triangle.c+"\n");
+            }
+        }
 
     }
 }
